@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { 
   CheckCircle, 
   TrendingUp, 
@@ -223,46 +224,60 @@ const SalesProLanding = () => {
         </div>
       </section>
 
-      {/* Product Preview Section */}
+      {/* Product Preview & Screenshots */}
       <section className="py-20 section-bg">
         <div className="container mx-auto px-4">
           <div className="text-center space-y-4 mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold">
-              SalesPro in Action
+              Product Preview & Screenshots
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Here's a quick look at SalesPro in action: Simple, intuitive, and built to empower your sales team every day.
             </p>
           </div>
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="relative">
-              <img 
-                src={mobileTraining} 
-                alt="Mobile training interface" 
-                className="w-full max-w-md mx-auto h-auto rounded-2xl shadow-brand"
-              />
-            </div>
-            <div className="space-y-6">
-              <h3 className="text-2xl font-bold">Mobile-First Training Platform</h3>
-              <p className="text-muted-foreground text-lg">
-                Access training materials, track progress, and get instant support right from your mobile device. 
-                Perfect for field sales teams who need information on the go.
-              </p>
-              <ul className="space-y-3">
-                {[
-                  "Interactive video training modules",
-                  "Real-time quiz assessments", 
-                  "Progress tracking and badges",
-                  "Instant Q&A support system"
-                ].map((feature, index) => (
-                  <li key={index} className="flex items-center space-x-3">
-                    <CheckCircle className="h-5 w-5 text-primary flex-shrink-0" />
-                    <span>{feature}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
+        </div>
+        
+        {/* Full Width Carousel */}
+        <div className="w-full">
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full"
+          >
+            <CarouselContent className="-ml-2 md:-ml-4">
+              <CarouselItem className="pl-2 md:pl-4 md:basis-4/5 lg:basis-3/4">
+                <div className="relative">
+                  <img 
+                    src={dashboardPreview} 
+                    alt="SalesPro dashboard interface showing performance metrics and analytics" 
+                    className="w-full h-auto rounded-2xl shadow-brand"
+                  />
+                </div>
+              </CarouselItem>
+              <CarouselItem className="pl-2 md:pl-4 md:basis-4/5 lg:basis-3/4">
+                <div className="relative">
+                  <img 
+                    src={mobileTraining} 
+                    alt="Mobile training interface with interactive modules and progress tracking" 
+                    className="w-full h-auto rounded-2xl shadow-brand"
+                  />
+                </div>
+              </CarouselItem>
+              <CarouselItem className="pl-2 md:pl-4 md:basis-4/5 lg:basis-3/4">
+                <div className="relative">
+                  <img 
+                    src={heroImage} 
+                    alt="Sales team collaboration and training environment" 
+                    className="w-full h-auto rounded-2xl shadow-brand"
+                  />
+                </div>
+              </CarouselItem>
+            </CarouselContent>
+            <CarouselPrevious className="left-4 bg-white/90 hover:bg-white border-primary/20" />
+            <CarouselNext className="right-4 bg-white/90 hover:bg-white border-primary/20" />
+          </Carousel>
         </div>
       </section>
 

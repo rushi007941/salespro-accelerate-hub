@@ -238,45 +238,39 @@ const SalesProLanding = () => {
         </div>
         
         {/* Full Width Carousel */}
-        <div className="w-full">
+        <div className="w-full overflow-hidden">
           <Carousel
             opts={{
-              align: "start",
+              align: "center",
               loop: true,
             }}
-            className="w-full"
+            className="w-full max-w-6xl mx-auto"
           >
-            <CarouselContent className="-ml-2 md:-ml-4">
-              <CarouselItem className="pl-2 md:pl-4 md:basis-4/5 lg:basis-3/4">
-                <div className="relative">
-                  <img 
-                    src={dashboardPreview} 
-                    alt="SalesPro dashboard interface showing performance metrics and analytics" 
-                    className="w-full h-auto rounded-2xl shadow-brand"
-                  />
-                </div>
+            <CarouselContent className="-ml-4">
+              <CarouselItem className="pl-4 basis-full md:basis-4/5">
+                <img 
+                  src={dashboardPreview} 
+                  alt="SalesPro dashboard interface showing performance metrics and analytics" 
+                  className="w-full h-auto rounded-lg"
+                />
               </CarouselItem>
-              <CarouselItem className="pl-2 md:pl-4 md:basis-4/5 lg:basis-3/4">
-                <div className="relative">
-                  <img 
-                    src={mobileTraining} 
-                    alt="Mobile training interface with interactive modules and progress tracking" 
-                    className="w-full h-auto rounded-2xl shadow-brand"
-                  />
-                </div>
+              <CarouselItem className="pl-4 basis-full md:basis-4/5">
+                <img 
+                  src={mobileTraining} 
+                  alt="Mobile training interface with interactive modules and progress tracking" 
+                  className="w-full h-auto rounded-lg"
+                />
               </CarouselItem>
-              <CarouselItem className="pl-2 md:pl-4 md:basis-4/5 lg:basis-3/4">
-                <div className="relative">
-                  <img 
-                    src={heroImage} 
-                    alt="Sales team collaboration and training environment" 
-                    className="w-full h-auto rounded-2xl shadow-brand"
-                  />
-                </div>
+              <CarouselItem className="pl-4 basis-full md:basis-4/5">
+                <img 
+                  src={heroImage} 
+                  alt="Sales team collaboration and training environment" 
+                  className="w-full h-auto rounded-lg"
+                />
               </CarouselItem>
             </CarouselContent>
-            <CarouselPrevious className="left-4 bg-white/90 hover:bg-white border-primary/20" />
-            <CarouselNext className="right-4 bg-white/90 hover:bg-white border-primary/20" />
+            <CarouselPrevious className="left-2 h-8 w-8" />
+            <CarouselNext className="right-2 h-8 w-8" />
           </Carousel>
         </div>
       </section>

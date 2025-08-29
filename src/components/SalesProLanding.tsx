@@ -158,31 +158,22 @@ const SalesProLanding = () => {
               Measurable improvements you can expect
             </p>
           </div>
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-8">
-              {[
-                { icon: CheckCircle, title: "Faster Closure Cycles", desc: "Reduce sales cycle time by up to 40%" },
-                { icon: TrendingUp, title: "Higher Agent Productivity", desc: "Increase individual performance by 30%" },
-                { icon: Star, title: "Improved Customer Experience", desc: "Better engagement leads to higher satisfaction" },
-                { icon: Target, title: "Reduced Training Costs", desc: "Automated onboarding cuts training time by 60%" },
-                { icon: BarChart3, title: "Better Performance Visibility", desc: "Real-time insights into team effectiveness" }
-              ].map((benefit, index) => (
-                <div key={index} className="flex items-start space-x-4">
-                  <benefit.icon className="h-8 w-8 text-primary mt-1 flex-shrink-0" />
-                  <div>
-                    <h3 className="text-xl font-semibold mb-2">{benefit.title}</h3>
-                    <p className="text-muted-foreground">{benefit.desc}</p>
-                  </div>
+          <div className="space-y-8 max-w-4xl mx-auto">
+            {[
+              { icon: CheckCircle, title: "Faster Closure Cycles", desc: "Reduce sales cycle time by up to 40%" },
+              { icon: TrendingUp, title: "Higher Agent Productivity", desc: "Increase individual performance by 30%" },
+              { icon: Star, title: "Improved Customer Experience", desc: "Better engagement leads to higher satisfaction" },
+              { icon: Target, title: "Reduced Training Costs", desc: "Automated onboarding cuts training time by 60%" },
+              { icon: BarChart3, title: "Better Performance Visibility", desc: "Real-time insights into team effectiveness" }
+            ].map((benefit, index) => (
+              <div key={index} className="flex items-start space-x-4">
+                <benefit.icon className="h-8 w-8 text-primary mt-1 flex-shrink-0" />
+                <div>
+                  <h3 className="text-xl font-semibold mb-2">{benefit.title}</h3>
+                  <p className="text-muted-foreground">{benefit.desc}</p>
                 </div>
-              ))}
-            </div>
-            <div className="relative">
-              <img 
-                src={dashboardPreview} 
-                alt="SalesPro dashboard showing performance metrics" 
-                className="w-full h-auto rounded-2xl shadow-brand"
-              />
-            </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

@@ -160,7 +160,7 @@ const SalesProLanding = () => {
           </div>
           
           {/* Benefits List */}
-          <div className="max-w-4xl mx-auto space-y-12">
+          <div className="max-w-4xl mx-auto space-y-6">
             {[
               { 
                 icon: CheckCircle, 
@@ -195,29 +195,25 @@ const SalesProLanding = () => {
             ].map((benefit, index) => (
               <div 
                 key={index} 
-                className="group flex items-center justify-between py-8 border-b border-border/30 last:border-b-0 hover:bg-white/30 hover:px-6 hover:py-10 hover:rounded-xl transition-all duration-300 animate-fade-in"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                className="group flex items-center justify-between py-4 border-b border-border/30 last:border-b-0 hover:bg-white/20 hover:px-4 hover:py-5 hover:rounded-lg transition-all duration-300"
               >
-                <div className="flex items-center space-x-6">
+                <div className="flex items-center space-x-4">
                   <div className="flex-shrink-0">
-                    <benefit.icon className="h-12 w-12 text-primary group-hover:scale-110 transition-transform duration-300" />
+                    <benefit.icon className="h-8 w-8 text-primary group-hover:scale-110 transition-transform duration-300" />
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold mb-2 group-hover:text-primary transition-colors duration-300">
+                    <h3 className="text-lg font-bold mb-1 group-hover:text-primary transition-colors duration-300">
                       {benefit.title}
                     </h3>
-                    <p className="text-muted-foreground text-lg leading-relaxed">
+                    <p className="text-muted-foreground text-sm">
                       {benefit.desc}
                     </p>
                   </div>
                 </div>
                 
-                <div className="text-right flex-shrink-0 ml-8">
-                  <div className="text-4xl font-bold text-primary group-hover:scale-110 transition-transform duration-300">
+                <div className="text-right flex-shrink-0 ml-6">
+                  <div className="text-2xl font-bold text-primary group-hover:scale-110 transition-transform duration-300">
                     {benefit.stat}
-                  </div>
-                  <div className="text-sm text-muted-foreground mt-1">
-                    improvement
                   </div>
                 </div>
               </div>

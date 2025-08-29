@@ -95,7 +95,7 @@ const SalesProLanding = () => {
               Transform these pain points into competitive advantages with SalesPro
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               { icon: TrendingUp, title: "Low Lead Closure Rates", desc: "Despite large pipelines" },
               { icon: Users, title: "Poor Customer Engagement", desc: "Weak follow-ups & interactions" },
@@ -104,15 +104,11 @@ const SalesProLanding = () => {
               { icon: BarChart3, title: "Performance Tracking", desc: "Difficulty monitoring agents" },
               { icon: FileText, title: "Marketing Support", desc: "Lack of ready-to-use tools" }
             ].map((challenge, index) => (
-              <Card key={index} className="hover-lift">
-                <CardHeader>
-                  <challenge.icon className="h-12 w-12 text-destructive mb-4" />
-                  <CardTitle className="text-xl">{challenge.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">{challenge.desc}</p>
-                </CardContent>
-              </Card>
+              <div key={index} className="group p-6 rounded-xl bg-gradient-to-br from-destructive/5 to-destructive/10 border border-destructive/20 hover:border-destructive/30 transition-all duration-300 hover:transform hover:scale-105">
+                <challenge.icon className="h-12 w-12 text-destructive mb-4 group-hover:scale-110 transition-transform duration-300" />
+                <h3 className="text-xl font-bold mb-2">{challenge.title}</h3>
+                <p className="text-muted-foreground">{challenge.desc}</p>
+              </div>
             ))}
           </div>
         </div>
@@ -129,7 +125,7 @@ const SalesProLanding = () => {
               Comprehensive tools designed specifically for sales excellence
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               { icon: Target, title: "Lead & Follow-Up Tracking", desc: "Never miss an opportunity with automated tracking and reminders" },
               { icon: Trophy, title: "Gamified Training", desc: "Engaging videos and quizzes that motivate continuous learning" },
@@ -138,15 +134,14 @@ const SalesProLanding = () => {
               { icon: FileText, title: "Centralized Product Access", desc: "All product information and resources in one place" },
               { icon: PlayCircle, title: "Role-Play Practice", desc: "Simulate real scenarios and master objection handling" }
             ].map((feature, index) => (
-              <Card key={index} className="hover-lift border-primary/10">
-                <CardHeader>
-                  <feature.icon className="h-12 w-12 text-primary mb-4" />
-                  <CardTitle className="text-xl">{feature.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
+              <div key={index} className="group relative p-6 rounded-xl bg-white border border-primary/10 hover:border-primary/30 transition-all duration-300 hover:shadow-brand">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-primary/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="relative">
+                  <feature.icon className="h-12 w-12 text-primary mb-4 group-hover:scale-110 transition-transform duration-300" />
+                  <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
                   <p className="text-muted-foreground">{feature.desc}</p>
-                </CardContent>
-              </Card>
+                </div>
+              </div>
             ))}
           </div>
         </div>
@@ -203,23 +198,29 @@ const SalesProLanding = () => {
               Simple steps to transform your sales team
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              { step: "01", title: "Onboard Your Team", desc: "Quick setup, easy to adopt" },
-              { step: "02", title: "Train & Engage", desc: "Videos, quizzes, and instant Q&A" },
-              { step: "03", title: "Track & Improve", desc: "Dashboards highlight performance" },
-              { step: "04", title: "Sell Smarter", desc: "Ready content + objection handling" }
-            ].map((step, index) => (
-              <Card key={index} className="text-center hover-lift">
-                <CardHeader>
-                  <div className="text-4xl font-bold text-primary mb-4">{step.step}</div>
-                  <CardTitle className="text-xl">{step.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
+          <div className="relative">
+            {/* Timeline line */}
+            <div className="hidden lg:block absolute top-20 left-0 right-0 h-0.5 bg-gradient-to-r from-primary/20 via-primary to-primary/20"></div>
+            
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {[
+                { step: "01", title: "Onboard Your Team", desc: "Quick setup, easy to adopt" },
+                { step: "02", title: "Train & Engage", desc: "Videos, quizzes, and instant Q&A" },
+                { step: "03", title: "Track & Improve", desc: "Dashboards highlight performance" },
+                { step: "04", title: "Sell Smarter", desc: "Ready content + objection handling" }
+              ].map((step, index) => (
+                <div key={index} className="text-center group">
+                  {/* Step number with circle */}
+                  <div className="relative inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-primary to-primary-glow text-white text-2xl font-bold mb-6 group-hover:scale-110 transition-transform duration-300 shadow-brand">
+                    {step.step}
+                    {/* Connector dot for timeline */}
+                    <div className="hidden lg:block absolute top-1/2 -translate-y-1/2 w-3 h-3 bg-primary rounded-full -z-10"></div>
+                  </div>
+                  <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors duration-300">{step.title}</h3>
                   <p className="text-muted-foreground">{step.desc}</p>
-                </CardContent>
-              </Card>
-            ))}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -291,7 +292,7 @@ const SalesProLanding = () => {
                 icon: Users
               },
               {
-                title: "Measurable Outcomes",
+                title: "Measurable Outcomes", 
                 desc: "Focused on agent empowerment with clear, trackable results that impact your bottom line",
                 icon: BarChart3
               },
@@ -301,15 +302,13 @@ const SalesProLanding = () => {
                 icon: Trophy
               }
             ].map((reason, index) => (
-              <Card key={index} className="text-center hover-lift border-primary/20">
-                <CardHeader>
-                  <reason.icon className="h-16 w-16 text-primary mx-auto mb-4" />
-                  <CardTitle className="text-2xl">{reason.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground text-lg">{reason.desc}</p>
-                </CardContent>
-              </Card>
+              <div key={index} className="group text-center p-8 rounded-2xl bg-gradient-to-b from-white to-primary/5 border border-primary/10 hover:border-primary/30 transition-all duration-500 hover:transform hover:-translate-y-2 hover:shadow-strong">
+                <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-primary to-primary-glow mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <reason.icon className="h-10 w-10 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold mb-4 group-hover:text-primary transition-colors duration-300">{reason.title}</h3>
+                <p className="text-muted-foreground text-lg leading-relaxed">{reason.desc}</p>
+              </div>
             ))}
           </div>
         </div>

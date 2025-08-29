@@ -159,92 +159,69 @@ const SalesProLanding = () => {
             </p>
           </div>
           
-          {/* Creative Benefits Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          {/* Benefits List */}
+          <div className="max-w-4xl mx-auto space-y-12">
             {[
               { 
                 icon: CheckCircle, 
                 title: "Faster Closure Cycles", 
                 desc: "Reduce sales cycle time by up to 40%",
-                gradient: "from-green-500/10 to-emerald-500/20",
-                iconColor: "text-green-600"
+                stat: "40%"
               },
               { 
                 icon: TrendingUp, 
                 title: "Higher Agent Productivity", 
                 desc: "Increase individual performance by 30%",
-                gradient: "from-blue-500/10 to-cyan-500/20", 
-                iconColor: "text-blue-600"
+                stat: "30%"
               },
               { 
                 icon: Star, 
                 title: "Improved Customer Experience", 
                 desc: "Better engagement leads to higher satisfaction",
-                gradient: "from-yellow-500/10 to-orange-500/20",
-                iconColor: "text-yellow-600"
+                stat: "95%"
               },
               { 
                 icon: Target, 
                 title: "Reduced Training Costs", 
                 desc: "Automated onboarding cuts training time by 60%",
-                gradient: "from-purple-500/10 to-pink-500/20",
-                iconColor: "text-purple-600"
+                stat: "60%"
               },
               { 
                 icon: BarChart3, 
                 title: "Better Performance Visibility", 
                 desc: "Real-time insights into team effectiveness",
-                gradient: "from-indigo-500/10 to-blue-500/20",
-                iconColor: "text-indigo-600"
+                stat: "100%"
               }
             ].map((benefit, index) => (
               <div 
                 key={index} 
-                className={`group relative p-6 rounded-2xl bg-gradient-to-br ${benefit.gradient} border border-white/20 hover:border-white/40 transition-all duration-500 hover:transform hover:-translate-y-2 hover:shadow-xl animate-fade-in`}
+                className="group flex items-center justify-between py-8 border-b border-border/30 last:border-b-0 hover:bg-white/30 hover:px-6 hover:py-10 hover:rounded-xl transition-all duration-300 animate-fade-in"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                {/* Background glow effect */}
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/5 to-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                
-                <div className="relative">
-                  {/* Icon with floating animation */}
-                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-white/80 backdrop-blur-sm mb-4 group-hover:scale-110 transition-transform duration-300 shadow-soft">
-                    <benefit.icon className={`h-8 w-8 ${benefit.iconColor}`} />
+                <div className="flex items-center space-x-6">
+                  <div className="flex-shrink-0">
+                    <benefit.icon className="h-12 w-12 text-primary group-hover:scale-110 transition-transform duration-300" />
                   </div>
-                  
-                  {/* Content */}
-                  <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors duration-300">
-                    {benefit.title}
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {benefit.desc}
-                  </p>
-                  
-                  {/* Subtle accent line */}
-                  <div className="absolute bottom-0 left-6 right-6 h-0.5 bg-gradient-to-r from-transparent via-primary/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div>
+                    <h3 className="text-2xl font-bold mb-2 group-hover:text-primary transition-colors duration-300">
+                      {benefit.title}
+                    </h3>
+                    <p className="text-muted-foreground text-lg leading-relaxed">
+                      {benefit.desc}
+                    </p>
+                  </div>
+                </div>
+                
+                <div className="text-right flex-shrink-0 ml-8">
+                  <div className="text-4xl font-bold text-primary group-hover:scale-110 transition-transform duration-300">
+                    {benefit.stat}
+                  </div>
+                  <div className="text-sm text-muted-foreground mt-1">
+                    improvement
+                  </div>
                 </div>
               </div>
             ))}
-          </div>
-          
-          {/* Call-out stats */}
-          <div className="mt-16 text-center">
-            <div className="inline-flex items-center space-x-8 p-6 rounded-2xl bg-white/50 backdrop-blur-sm border border-primary/20">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-primary">40%</div>
-                <div className="text-sm text-muted-foreground">Faster Closures</div>
-              </div>
-              <div className="w-px h-12 bg-primary/20"></div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-primary">60%</div>
-                <div className="text-sm text-muted-foreground">Training Time Saved</div>
-              </div>
-              <div className="w-px h-12 bg-primary/20"></div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-primary">30%</div>
-                <div className="text-sm text-muted-foreground">Productivity Boost</div>
-              </div>
-            </div>
           </div>
         </div>
       </section>

@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+/* DigiQT Design System - Professional blue theme
 All colors MUST be HSL.
 */
 
@@ -17,8 +17,11 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* DigiQT Blue Brand Colors */
+    --primary: 225 52% 22%;
+    --primary-foreground: 0 0% 98%;
+    --primary-light: 225 47% 35%;
+    --primary-dark: 225 65% 16%;
 
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
@@ -28,6 +31,16 @@ All colors MUST be HSL.
 
     --accent: 210 40% 96.1%;
     --accent-foreground: 222.2 47.4% 11.2%;
+
+    /* Brand Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-light)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-light)) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%), hsl(220 13% 98%));
+
+    /* Shadows */
+    --shadow-soft: 0 2px 8px -2px hsl(var(--primary) / 0.1);
+    --shadow-medium: 0 8px 25px -5px hsl(var(--primary) / 0.15);
+    --shadow-strong: 0 20px 40px -10px hsl(var(--primary) / 0.2);
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
@@ -65,8 +78,10 @@ All colors MUST be HSL.
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 210 40% 98%;
+    --primary: 225 58% 65%;
     --primary-foreground: 222.2 47.4% 11.2%;
+    --primary-light: 225 47% 75%;
+    --primary-dark: 225 65% 55%;
 
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
@@ -100,6 +115,32 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+  }
+
+  .hero-section {
+    background: var(--gradient-hero);
+  }
+
+  .section-bg {
+    background: var(--gradient-subtle);
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent;
+  }
+
+  .shadow-brand {
+    box-shadow: var(--shadow-medium);
+  }
+
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .hover-lift {
+    @apply transition-all duration-300 hover:shadow-brand hover:-translate-y-1;
   }
 }
